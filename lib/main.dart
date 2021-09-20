@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_desafio_instagram/home/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,9 +11,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
+        brightness: Brightness.dark,
       ),
-      home: Container(),
+      home: HomePage(),
     );
   }
 }

@@ -1,0 +1,38 @@
+[
+    {
+        "url": "https://www.einerd.com.br/wp-content/uploads/2019/12/Batman-capa-890x466.jpg",
+        "nome": "Batman",
+        "aovivo": true,
+        "favorito": false
+    },
+    {
+        "url": "https://legadodadc.com.br/wp-content/uploads/2021/07/sm78-cv1-btc-ms-min-00151-1277498.jpeg",
+        "nome": "Superman",
+        "aovivo": false,
+        "favorito": false
+    },
+    {
+        "url": "https://kanto.legiaodosherois.com.br/w760-h398-gnw-cfill-q80/wp-content/uploads/2021/02/legiao_xXWbA8zHCqZt.png.jpeg",
+        "nome": "Flash",
+        "aovivo": false,
+        "favorito": true
+    },
+    {
+        "url": "https://terraverso.com.br/wp-content/uploads/2020/09/ww84-Nicola.jpg",
+        "nome": "Mulher Maravilha",
+        "aovivo": false,
+        "favorito": true
+    },
+    {
+        "url": "https://static1.purebreak.com.br/articles/6/39/27/6/@/187335-filme-liga-da-justica-jason-momoa-aq-diapo-1.jpg",
+        "nome": "Aquaman",
+        "aovivo": false,
+        "favorito": false
+    },
+    {
+        "url": "https://kanto.legiaodosherois.com.br/w760-h398-gnw-cfill-q80/wp-content/uploads/2021/01/legiao_dEucyK5gnDCl.png.jpeg",
+        "nome": "Cyborg",
+        "aovivo": false,
+        "favorito": false
+    }
+]
