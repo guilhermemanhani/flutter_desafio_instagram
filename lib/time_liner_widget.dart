@@ -7,6 +7,7 @@ class TimeLinerWidget extends StatelessWidget {
   final String curtida;
   final String comentarios;
   final String nome;
+  final String msg;
   const TimeLinerWidget({
     Key? key,
     required this.urlPerfil,
@@ -14,31 +15,38 @@ class TimeLinerWidget extends StatelessWidget {
     required this.curtida,
     required this.comentarios,
     required this.nome,
+    required this.msg,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  backgroundImage: NetworkImage(urlPerfil),
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Container(alignment: Alignment.topLeft, child: Text(nome)),
-              ],
-            ),
-            IconButton(
-              onPressed: () => print(''),
-              icon: Icon(Icons.more_horiz),
-            ),
-          ],
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 8.0,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(urlPerfil),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Container(alignment: Alignment.topLeft, child: Text(nome)),
+                ],
+              ),
+              IconButton(
+                onPressed: () => print(''),
+                icon: Icon(Icons.more_horiz),
+              ),
+            ],
+          ),
         ),
         Container(
           height: 200,
@@ -47,7 +55,7 @@ class TimeLinerWidget extends StatelessWidget {
             image: NetworkImage(
               urlPerfil,
             ),
-            fit: BoxFit.scaleDown,
+            fit: BoxFit.cover,
           ),
         ),
         Row(
@@ -64,22 +72,51 @@ class TimeLinerWidget extends StatelessWidget {
                 IconButton(
                   onPressed: () => print(''),
                   icon: Icon(
-                    Icons.chat_bubble_outline,
+                    Icons.mode_comment_outlined,
                   ),
                 ),
                 IconButton(
                   onPressed: () => print(''),
                   icon: Icon(
-                    Icons.send_outlined,
+                    Icons.near_me_outlined,
                   ),
                 ),
               ],
             ),
             IconButton(
               onPressed: () => print(''),
-              icon: Icon(Icons.flag),
+              icon: Icon(Icons.turned_in_not_sharp),
             ),
           ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 8.0,
+            right: 8.0,
+          ),
+          child: Text('$curtida curtidas'),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 4.0,
+            left: 8.0,
+            right: 8.0,
+          ),
+          child: Text('$nome $msg'),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 4.0,
+            left: 8.0,
+            right: 8.0,
+          ),
+          child: InkWell(
+            child: Text(
+              'ver todos os $comentarios comentários',
+              style: TextStyle(color: Colors.white54),
+            ),
+            onTap: () => print(''),
+          ),
         ),
       ],
     );

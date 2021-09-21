@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
           ),
           IconButton(
             onPressed: () => print(''),
-            icon: Icon(Icons.chat_outlined),
+            icon: Icon(Icons.maps_ugc_rounded),
           ),
         ],
         backgroundColor: Colors.black,
@@ -81,16 +81,16 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: Container(
-        color: Colors.black,
-        child: Column(
-          children: [
-            Expanded(
-              flex: 0,
-              child: Container(
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.black,
+          child: Column(
+            children: [
+              Container(
                 height: 120,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
+                  // shrinkWrap: true,
                   itemCount: herois.length,
                   itemBuilder: (context, index) {
                     var heroiAtual = herois[index];
@@ -106,30 +106,27 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ),
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                // height:
-                child: ListView.builder(
-                  itemCount: timeline.length,
-                  itemBuilder: (context, index) {
-                    var postAtual = timeline[index];
-                    return Padding(
-                      padding: const EdgeInsets.only(top: 16.0, right: 8.0),
-                      child: TimeLinerWidget(
-                        urlPerfil: postAtual.urlPerfil,
-                        urlFoto: postAtual.urlFoto,
-                        curtida: postAtual.curtidas.toString(),
-                        comentarios: postAtual.comentarios.toString(),
-                        nome: postAtual.nome,
-                      ),
-                    );
-                  },
-                ),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: timeline.length,
+                itemBuilder: (context, index) {
+                  var postAtual = timeline[index];
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 16.0, right: 8.0),
+                    child: TimeLinerWidget(
+                      urlPerfil: postAtual.urlPerfil,
+                      urlFoto: postAtual.urlFoto,
+                      curtida: postAtual.curtidas.toString(),
+                      comentarios: postAtual.comentarios.toString(),
+                      nome: postAtual.nome,
+                      msg: postAtual.msg,
+                    ),
+                  );
+                },
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: new Theme(
@@ -167,8 +164,13 @@ class _HomePageState extends State<HomePage> {
               label: 'Pag2',
             ),
             BottomNavigationBarItem(
-              icon: Icon(
-                Icons.assistant_direction_sharp,
+              icon: Container(
+                height: 25,
+                width: 25,
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      'https://www.einerd.com.br/wp-content/uploads/2019/12/Batman-capa-890x466.jpg'),
+                ),
               ),
               label: 'Pag2',
             ),
