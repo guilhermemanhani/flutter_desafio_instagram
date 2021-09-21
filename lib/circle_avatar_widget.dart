@@ -21,8 +21,8 @@ class CircleAvatarWidget extends StatelessWidget {
         Stack(
           children: [
             Container(
-              width: 100,
-              height: 100,
+              width: 80,
+              height: 80,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Colors.pink.shade400, Colors.purple.shade800],
@@ -33,8 +33,8 @@ class CircleAvatarWidget extends StatelessWidget {
               ),
             ),
             Container(
-              width: 100,
-              height: 100,
+              width: 80,
+              height: 80,
               padding: EdgeInsets.all(5),
               child: CircleAvatar(
                 backgroundImage: NetworkImage(urlImage),
@@ -42,8 +42,8 @@ class CircleAvatarWidget extends StatelessWidget {
             ),
             aovivo
                 ? Container(
-                    width: 100,
-                    height: 100,
+                    width: 80,
+                    height: 80,
                     child: Align(
                       alignment: Alignment.bottomCenter,
                       child: Container(
@@ -73,8 +73,8 @@ class CircleAvatarWidget extends StatelessWidget {
                   ),
             favorito
                 ? Container(
-                    width: 92,
-                    height: 92,
+                    width: 72,
+                    height: 72,
                     child: Align(
                       alignment: Alignment.bottomRight,
                       child: Container(
@@ -104,7 +104,7 @@ class CircleAvatarWidget extends StatelessWidget {
           height: 8,
         ),
         Container(
-          width: 100,
+          width: 80,
           child: RichText(
             overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,

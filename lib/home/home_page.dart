@@ -47,13 +47,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final statusBar = mediaQuery.padding.top;
-    final heightBody = mediaQuery.size.height -
-        statusBar -
-        kToolbarHeight -
-        kBottomNavigationBarHeight -
-        34;
+    // final mediaQuery = MediaQuery.of(context);
+    // final statusBar = mediaQuery.padding.top;
+    // final heightBody = mediaQuery.size.height -
+    //     statusBar -
+    //     kToolbarHeight -
+    //     kBottomNavigationBarHeight -
+    // 34;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -85,42 +85,48 @@ class _HomePageState extends State<HomePage> {
         color: Colors.black,
         child: Column(
           children: [
-            Container(
-              height: 158,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: herois.length,
-                itemBuilder: (context, index) {
-                  var heroiAtual = herois[index];
-                  return Padding(
-                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                    child: CircleAvatarWidget(
-                      urlImage: heroiAtual.url,
-                      nome: heroiAtual.nome,
-                      favorito: heroiAtual.favorito,
-                      aovivo: heroiAtual.aovivo,
-                    ),
-                  );
-                },
+            Expanded(
+              flex: 0,
+              child: Container(
+                height: 120,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: herois.length,
+                  itemBuilder: (context, index) {
+                    var heroiAtual = herois[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                      child: CircleAvatarWidget(
+                        urlImage: heroiAtual.url,
+                        nome: heroiAtual.nome,
+                        favorito: heroiAtual.favorito,
+                        aovivo: heroiAtual.aovivo,
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
-            Container(
-              height: heightBody - 158,
-              child: ListView.builder(
-                itemCount: timeline.length,
-                itemBuilder: (context, index) {
-                  var postAtual = timeline[index];
-                  return Padding(
-                    padding: const EdgeInsets.only(top: 16.0, right: 8.0),
-                    child: TimeLinerWidget(
-                      urlPerfil: postAtual.urlPerfil,
-                      urlFoto: postAtual.urlFoto,
-                      curtida: postAtual.curtidas.toString(),
-                      comentarios: postAtual.comentarios.toString(),
-                      nome: postAtual.nome,
-                    ),
-                  );
-                },
+            Expanded(
+              flex: 1,
+              child: Container(
+                // height:
+                child: ListView.builder(
+                  itemCount: timeline.length,
+                  itemBuilder: (context, index) {
+                    var postAtual = timeline[index];
+                    return Padding(
+                      padding: const EdgeInsets.only(top: 16.0, right: 8.0),
+                      child: TimeLinerWidget(
+                        urlPerfil: postAtual.urlPerfil,
+                        urlFoto: postAtual.urlFoto,
+                        curtida: postAtual.curtidas.toString(),
+                        comentarios: postAtual.comentarios.toString(),
+                        nome: postAtual.nome,
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
           ],

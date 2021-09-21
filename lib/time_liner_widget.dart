@@ -41,7 +41,7 @@ class TimeLinerWidget extends StatelessWidget {
           ],
         ),
         Container(
-          height: 296,
+          height: 200,
           width: MediaQuery.of(context).size.width,
           child: Image(
             image: NetworkImage(
